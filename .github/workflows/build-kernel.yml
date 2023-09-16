@@ -209,7 +209,7 @@ jobs:
 
     - name: Build kernel
       run: |
-        sudo chmod -R 777 /
+        sudo chmod -R 777 /bin/sh
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
         export PATH=$GITHUB_WORKSPACE/kernel_workspace/clang-aosp/bin:$PATH
         export KBUILD_BUILD_HOST=Github-Action
