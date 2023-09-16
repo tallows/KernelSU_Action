@@ -211,7 +211,7 @@ jobs:
       run: |
         cd
         wget https://android.googlesource.com/platform/system/libufdt/+archive/refs/heads/master/utils.tar.gz
-        tar xvf libufdt-refs_heads_main-utils.tar.gz
+        tar xvf utils.tar.gz
         sudo cp src/mkdtboimg.py /usr/bin/mkdtimg
         sudo chmod a+x /usr/bin/mkdtimg
         rm utils.tar.gz
