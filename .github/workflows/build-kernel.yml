@@ -209,7 +209,12 @@ jobs:
 
     - name: Build kernel
       run: |
-        sudo chmod -R 777 /bin/sh
+        cd
+        wget https://android.googlesource.com/platform/system/libufdt/+archive/refs/heads/master/utils.tar.gz
+        tar xvf libufdt-refs_heads_main-utils.tar.gz
+        sudo cp src/mkdtboimg.py /usr/bin/mkdtimg
+        sudo chmod a+x /usr/bin/mkdtimg
+        rm utils.tar.gz
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
         export PATH=$GITHUB_WORKSPACE/kernel_workspace/clang-aosp/bin:$PATH
         export KBUILD_BUILD_HOST=Github-Action
