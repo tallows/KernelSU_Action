@@ -19,6 +19,7 @@ jobs:
       uses: easimon/maximize-build-space@master
       with:
          swap-size-mb: 17408
+         build-mount-path: /dev/root
          remove-dotnet: 'true'
          remove-haskell: 'true'
          remove-docker-images: 'true'
