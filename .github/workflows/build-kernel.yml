@@ -19,9 +19,11 @@ jobs:
     - name: Maximize build space
       uses: easimon/maximize-build-space@master
       with:
-         root-reserve-mb: 512
+         root-reserve-mb: 1024
          swap-size-mb: 14336
          remove-dotnet: 'true'
+         remove-android: 'true'
+         remove-haskell: 'true'
     - name: Prepare Configuration
       run: |
         CONFIG_ENV=$(cat config.env | grep -w "CONFIG_ENV" | head -n 1 | cut -d "=" -f 2)
