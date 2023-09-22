@@ -61,7 +61,7 @@ jobs:
         echo "KSU_EXPECTED_HASH=$(cat $CONFIG_ENV | grep -w "KSU_EXPECTED_HASH" | head -n 1 | cut -d "=" -f 2)" >> $GITHUB_ENV
 
     - name: swap
-      uses: actionhippie/swap-space@v4
+      uses: actionhippie/swap-space@v1
       with:
         size: 14G
 
