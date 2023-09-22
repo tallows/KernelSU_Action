@@ -19,7 +19,9 @@ jobs:
       uses: easimon/maximize-build-space@master
       with:
          swap-size-mb: 17408
-         build-mount-path: /dev/root
+         build-mount-path: 'flase'
+         pv-loop-path: 'flase'
+         tmp-pv-loop-path: 'flase'
          remove-dotnet: 'true'
          remove-haskell: 'true'
          remove-docker-images: 'true'
