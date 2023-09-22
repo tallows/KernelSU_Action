@@ -18,13 +18,12 @@ jobs:
     - name: Maximize build space
       uses: easimon/maximize-build-space@master
       with:
+         root-reserve-mb: 2048
          swap-size-mb: 17408
-         build-mount-path: 'flase'
-         pv-loop-path: 'flase'
-         tmp-pv-loop-path: 'flase'
          remove-dotnet: 'true'
          remove-haskell: 'true'
          remove-docker-images: 'true'
+         remove-android: 'true'
     - uses: actions/checkout@v3
     - name: Prepare Configuration
       run: |
