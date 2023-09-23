@@ -71,6 +71,15 @@ jobs:
         sudo apt-get update
         sudo apt-get install git ccache automake flex lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven libssl-dev pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl libxml-simple-perl bc libc6-dev-i386 lib32ncurses5-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc unzip device-tree-compiler python2 python3 u-boot-tools libgmp-dev libmpfr-dev llvm-dev llvm-15-dev llvm-15-linker-tools
         sudo apt-get upgrade
+        git clone --depth 1 git://sourceware.org/git/binutils-gdb.git binutils
+        mkdir build
+        cd build
+        ../binutils/configure --enable-gold --enable-plugins --disable-werror --enable-gold=default
+        make all-gold
+        make && sudo make install
+        find . -name LLVMgold.so
+        find ../binutils -name LLVMgold.so
+        sudo ln -sf LLVMgold.so /usr/lib/LLVMgold.so
         sudo ln -sf /usr/lib/LLVMgold.so /usr/local/lib/LLVMgold.so
         mkdir -p $GITHUB_WORKSPACE/kernel_workspace
 
