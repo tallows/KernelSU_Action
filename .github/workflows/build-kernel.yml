@@ -82,6 +82,7 @@ jobs:
         df -h
         free -h
         cd $GITHUB_WORKSPACE/kernel_workspace
+        ls
         mkdir clang-aosp
         wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/${{ env.CLANG_BRANCH }}/clang-${{ env.CLANG_VERSION }}.tar.gz
         tar -C clang-aosp/ -zxvf clang-${{ env.CLANG_VERSION }}.tar.gz
@@ -245,9 +246,10 @@ jobs:
     - name: Build kernel
       run: |
         df -h
+        ls $GITHUB_WORKSPACE/kernel_workspace
         free -h
-        sudo ln -sf /home/runner/work/KernelSU_Action/KernelSU_Action/kernel_workspace/clang-aosp/lib64/LLVMgold.so /usr/lib/LLVMgold.so
-        sudo ln -sf /home/runner/work/KernelSU_Action/KernelSU_Action/kernel_workspace/clang-aosp/lib64/LLVMgold.so /usr/local/lib/LLVMgold.so
+        sudo ln -sf $GITHUB_WORKSPACE/kernel_workspace/clang-aosp/lib64/LLVMgold.so /usr/lib/LLVMgold.so
+        sudo ln -sf $GITHUB_WORKSPACE/kernel_workspace/clang-aosp/lib64/LLVMgold.so /usr/local/lib/LLVMgold.so
         cd
         wget https://android.googlesource.com/platform/system/libufdt/+archive/refs/heads/master/utils.tar.gz
         tar xvf utils.tar.gz
