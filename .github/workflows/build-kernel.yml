@@ -77,10 +77,7 @@ jobs:
         ../binutils/configure --enable-gold --enable-plugins --disable-werror --enable-gold=default
         make all-gold
         make && sudo make install
-        find . -name LLVMgold.so
-        find ../binutils -name LLVMgold.so
-        sudo ln -sf LLVMgold.so /usr/lib/LLVMgold.so
-        sudo ln -sf LLVMgold.so /usr/local/lib/LLVMgold.so
+        ls
         mkdir -p $GITHUB_WORKSPACE/kernel_workspace
 
     - name: Download Clang-aosp
