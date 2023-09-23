@@ -87,7 +87,7 @@ jobs:
       if: env.USE_CUSTOM_CLANG != 'true'
       run: |
         df -h
-        sudo rm -r ../binutils
+        free -h
         cd $GITHUB_WORKSPACE/kernel_workspace
         mkdir clang-aosp
         wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/${{ env.CLANG_BRANCH }}/clang-${{ env.CLANG_VERSION }}.tar.gz
@@ -227,6 +227,7 @@ jobs:
     - name: Build kernel
       run: |
         df -h
+        free -h
         cd
         wget https://android.googlesource.com/platform/system/libufdt/+archive/refs/heads/master/utils.tar.gz
         tar xvf utils.tar.gz
