@@ -74,9 +74,6 @@ jobs:
         git clone --depth 1 git://sourceware.org/git/binutils-gdb.git binutils
         mkdir build
         cd build
-        ../binutils/configure --enable-gold --enable-plugins --disable-werror --enable-gold=default
-        make all-gold
-        make && sudo make install
         CMake with -DLLVM_BINUTILS_INCDIR=../binutils/include
         make && sudo make install
         find . -name LLVMgold.so
