@@ -80,7 +80,7 @@ jobs:
         find . -name LLVMgold.so
         find ../binutils -name LLVMgold.so
         sudo ln -sf LLVMgold.so /usr/lib/LLVMgold.so
-        sudo ln -sf /usr/lib/LLVMgold.so /usr/local/lib/LLVMgold.so
+        sudo ln -sf LLVMgold.so /usr/local/lib/LLVMgold.so
         mkdir -p $GITHUB_WORKSPACE/kernel_workspace
 
     - name: Download Clang-aosp
